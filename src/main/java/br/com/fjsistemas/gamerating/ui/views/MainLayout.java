@@ -204,7 +204,7 @@ public class MainLayout extends AppLayout {
      * Metodo para pegar o nome do usuario logado
      */
     private Component getCurrentUsername() {
-        String username = securityService.getAuthenticatedUser().toString();
+        String username = securityService.getAuthenticatedUser().get().getUsername();
         Div usernameDiv = new Div();
         usernameDiv.getStyle()
                 .set("display", "flex")
