@@ -1,0 +1,425 @@
+/* Base styles */
+:root {
+  --primary-color: #2c3e50;
+  --text-white: #fff;
+  --secondary-color: #3498db;
+  --accent-color: #e74c3c;
+  --background-color: #ffff;
+  --card-background: #ffffff;
+  --text-color: #53576b;
+  --text-secondary: #666666;
+  --border-color: #dddddd;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --carousel-height: 500px;
+  --card-width: 300px;
+  --card-height: 380px;
+  --card-radius: 4px;
+  --spacing-xs: 4px;
+  --spacing-s: 8px;
+  --spacing-m: 16px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+}
+
+/* Dark theme */
+[theme~="dark"] {
+  --primary-color: #1a2530;
+  --secondary-color: #2980b9;
+  --accent-color: #c0392b;
+  --background-color: #121212;
+  --card-background: #1e1e1e;
+  --text-color: #f5f5f5;
+  --text-secondary: #bbbbbb;
+  --border-color: #333333;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --lumo-base-color: #121212;
+}
+
+
+html {
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Home view styles */
+.home-view {
+  display: flex;
+  height: fit-content;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  with:100%;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: var(--spacing-m);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-right:none;
+}
+
+/* Main layout styles */
+
+.header-layout {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color:#121212 ;
+  height: 60px;
+}
+
+.logo-image {
+  width:100%;
+  height: 35px;
+  object-fit: cover;
+}
+
+/* Navigation container */
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Navigation items */
+.nav-item {
+  padding: 0 16px;
+  color: var(--lumo-secondary-text-color);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:hover {
+  color: var(--lumo-primary-color);
+}
+
+.register-button {
+    width: 100%;
+}
+
+.search-field {
+    display:flex;
+    justify-content:center;
+    background-color: #cccccc;
+    align-items: center;
+    border-radius: 8px;
+    gap: 5px;
+    outline: none;
+    height: 30px;
+    color: white;
+}
+
+
+[theme~="dark"] .search-field {
+     display:flex;
+     justify-content:center;
+     background-color: #cccccc;
+     align-items: center;
+     border-radius: 8px;
+     gap: 5px;
+     outline: none;
+     height: 30px;
+     color: #253244;
+}
+
+].search-field::part(input-field) {
+   background-color: #cfd3d6;
+   border-radius: 10px;
+ }
+
+ .search-field::part(prefix) {
+   color: #1e88e5;
+   fill: #1e88e5;
+ }
+
+
+
+ [theme~="dark"] .search-field::part(prefix) {
+   color: #1976d2;
+   fill: #1976d2;
+ }
+
+
+/* Game carousel styles */
+.game-carousel {
+  width: 100%;
+  height: var(--carousel-height);
+  margin-bottom: var(--spacing-xl);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+}
+
+.game-carousel .carousel-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  justify-content:center;
+}
+
+.game-banner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-banner .banner-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-l);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+/* Game cards section */
+.games-section  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.games-section h2 {
+  color: #253244;
+  margin-bottom: var(--spacing-l);
+  font-size: 1.8rem;
+  font-weight: 500;
+  border-bottom: 2px black;
+  padding-bottom: var(--spacing-s);
+  display: inline-block;
+}
+
+[theme~="dark"] .games-section h2  {
+  color: white;
+  font-weight: 700;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-l);
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+/* Game card styles */
+.game-card {
+  background-color: var(--card-background);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  width: var(--card-width);
+  height: var(--card-height);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 5 5px 5px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px var(--shadow-color);
+}
+
+.game-card .card-image {
+  height: 160px;
+  overflow: hidden;
+}
+
+.game-card .card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.game-card .card-content {
+  padding: var(--spacing-m);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card .card-title span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: var(--spacing-s);
+  color: black;
+}
+
+.game-card .card-info {
+  color: #000;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-m);
+}
+
+.game-card .card-actions {
+  margin-top: auto;
+}
+
+[theme~="dark"].drawer-content  {
+    background: var(--background-color);
+    color: var(--text-color ;
+}
+/* Reviews Section */
+
+.reviews-views {
+    display: flex;
+    background-color: #fff;
+    color: #121212;
+}
+[theme~="dark"] .reviews-views {
+    display: flex;
+    background-color; #121212;
+    color: #fff;
+}
+
+
+:host([theme~="light"]) [part="label"] {
+  color: var(--label-color);
+}
+
+/* ======= TEMA DARK ======= */
+html[theme~="dark"] [part="label"] {
+  color: gray;
+}
+
+
+/* Theme toggle button */
+.theme-toggle {
+  position: fixed;
+  bottom: var(--spacing-l);
+  right: var(--spacing-l);
+  width: 300px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #253244;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: var(--primary-color);
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  :root {
+    --carousel-height: 350px;
+  }
+
+  .card-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --carousel-height: 300px;
+    --card-width: 240px;
+    --card-height: 340px;
+  }
+
+  .home-view {
+    padding: var(--spacing-s);
+  }
+
+  .games-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .game-card {
+    width: 250px;
+    height: 300%;
+    object-fit: cover;
+  }
+
+   .game-card .btn-Links {
+
+      margin-top: 8px;
+   }
+
+}
+
+@media (max-width: 480px) {
+  :root {
+    --carousel-height: 200px;
+    --card-width: 100%;
+    --card-height: 320px;
+  }
+
+  .card-container {
+    gap: var(--spacing-m);
+  }
+
+  .game-card {
+    width: 100%;
+  }
+
+ .game-card .btn-Links {
+    margin-top: 8px;
+ }
+
+  .games-section h2 {
+    font-size: 1.3rem;
+  }
+}
+
+/*  Reviews Section   */
+.reviews-view {
+    display: flex;
+}
+
+.page-header {
+     display:flex;
+     gap:5px;
+ }
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .navigation-container {
+    display: none;
+  }
+
+  /* The drawer toggle (hamburger) will be visible by default in AppLayout */
+}
+
+/* Drawer styles for mobile */
+vaadin-drawer-toggle {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  vaadin-drawer-toggle {
+    display: flex;
+  }
+}

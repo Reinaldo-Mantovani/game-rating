@@ -1,0 +1,14 @@
+/* CSS for styling the login button */
+:host {
+  --label-color: #293648;
+    color: #293648;
+    padding: 0.5rem 1rem;
+}
+
+
+
+/* Alternative approach using deeper CSS selectors */
+.blue-button-login vaadin-login-form-wrapper::part(form) vaadin-button {
+  background-color: #1976d2;
+  color: white;
+}

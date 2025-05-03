@@ -1,0 +1,114 @@
+/* Estilo base */
+:host {
+    display: block;
+    padding: 1rem;
+    box-sizing: border-box;
+    color: gray;
+}
+
+
+ h3, p{
+    color: white;
+ }
+
+h2 {
+    color: black;
+}
+
+body {
+    background-color: white;
+    color: #253244;
+}
+
+[theme~="dark"] .details-container {
+    background-color:#121212;
+}
+
+vaadin-button {
+    color: #253244;
+    margin-top: 0.5rem;
+    border: 1px solid #253244;
+    background:transparent;
+}
+
+[theme~="dark"] vaadin-button {
+    color: #fff;
+    margin-top: 0.5rem;
+    border: 1px solid #ffff;
+    background:transparent;
+}
+
+
+.game-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.game-header .game-image img {
+    width:400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.game-info {
+    flex: 1;
+    min-width: 250px;
+}
+
+.review-box {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    background-color: var(--background-color);
+}
+
+.review-box h3 {
+    color: gray;
+    margin-bottom: 1rem;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .game-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .game-header .game-image img {
+        width: 100%;
+        height: auto;
+        max-width: 320px;
+    }
+
+    .game-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .review-box {
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .game-header .game-image img {
+        max-width: 100%;
+    }
+
+    .review-box {
+        font-size: 0.9rem;
+    }
+
+    .rating {
+        font-size: 14px;
+    }
+}

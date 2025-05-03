@@ -1,0 +1,154 @@
+/* Responsive Layout Styles */
+
+/* Base styles for all screen sizes */
+
+
+.logo-layout {
+  margin-right: 16px;
+}
+
+/* Drawer Navigation */
+
+.drawer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Opcional: centraliza verticalmente */
+    height:100vh; /* Garante que o menu ocupe a altura total da tela */
+    padding: 1rem;
+    gap: 1rem; /* Espaçamento entre os elementos */
+}
+
+.drawer-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-decoration: none;
+  color: var(--lumo-body-text-color);
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.drawer-nav-item:hover {
+  background-color: var(--lumo-contrast-10pct);
+}
+
+.drawer-icon {
+  margin-right: 12px;
+}
+
+[theme~="dark"] .drawer-content  {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: var(--lumo-body-text-color);
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    background: var(--background-color);
+    color: var(--text-color) ;
+}
+
+:host([drawer-opened]) [part='drawer'] {
+    visibility: hidden;
+    transform: translateX(0%);
+    touch-action: manipulation;
+}
+
+:host([drawer-opened]) [part='drawer'] {
+     visibility: hidden;
+    transform: translateX(0%);
+    touch-action: manipulation;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  /* Header adjustments for mobile */
+  .header-layout {
+    padding: 8px !important;
+  }
+
+  .logo-text {
+    font-size: 20px !important;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .right-section {
+    display: none;
+  }
+
+  .drawer-content {
+    padding-top: 16px;
+    display:block;
+
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Content adjustments for mobile */
+  .content-wrapper {
+    padding: 16px;
+  }
+
+  /* Game cards for mobile */
+  .game-card {
+    width: 100%;
+  }
+
+  /* Main content padding to avoid overlap with side menu */
+  vaadin-app-layout::part(drawer) {
+    z-index: 1001;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+
+
+
+  /* Hide side menu on desktop */
+  .side-menu-component {
+    display: none !important;
+  }
+}
+
+/* Dark mode adjustments */
+:host([theme~="dark"]) .side-menu-component {
+  background-color: var(--lumo-base-color);
+}
+
+/* Mobile layout specific styles */
+.mobile-layout .content-wrapper {
+  padding-bottom: 16px;
+}
+
+/* Active states */
+.drawer-nav-item.router-link-active {
+  background-color: var(--lumo-contrast-10pct);
+  color: var(--lumo-primary-color);
+}
+
+/* Overlay for side menu */
+.side-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+.side-menu-overlay.visible {
+  display: block;
+}

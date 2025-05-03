@@ -1,0 +1,310 @@
+/* Base styles */
+.reviews-view {
+    background-color: white;
+    color: #253244;
+    overflow:hidden;
+}
+
+[theme~="dark"] .reviews-view  {
+    background: #121212;
+    color: var(--text-color) ;
+}
+
+/* Header styles */
+.page-header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #253244;
+}
+
+[theme~="dark"] .page-title  {
+    color: white ;
+}
+
+
+
+.category-filter::part(input-field) {
+  background-color: #f0f4f8;
+  color: #293648;
+}
+.category-filter::part(toggle-button) {
+  color: #1976d2; /* Cor do ícone da seta */
+  /* ou use fill se estiver com SVG */
+  fill: #1976d2;
+}
+/* Altera a cor do placeholder */
+.category-filter::part(input-field)::placeholder {
+  color: #9e9e9e; /* Cor do placeholder */
+  opacity: 1; /* Garante que a cor seja aplicada */
+}
+
+.category-filter {
+    min-width: 200px;
+}
+
+input[placeholder], [placeholder], *[placeholder] {
+    color: #253244 !important;
+}
+
+
+.theme-toggle {
+    margin-left: auto;
+}
+
+/* Content layout */
+.content-layout {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    overflow: auto;
+}
+
+/* Featured reviews */
+.featured-reviews {
+    flex: 2;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.reviews-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Review card */
+.review-card {
+    background-color: white;
+    border-radius: var(--lumo-border-radius-l);
+    box-shadow: var(--lumo-box-shadow-s);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid var(--lumo-contrast-10pct);
+    padding: 1.5rem;
+}
+
+[theme~="dark"] .review-card {
+    background-color: #1E1E1E;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--lumo-box-shadow-m);
+}
+
+.game-name {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #1e3f6c;
+}
+
+[theme~="dark"] .game-name {
+    color: white;
+}
+
+.review-title {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #293448;
+}
+
+[theme~="dark"] .review-title {
+    color: #1e3f6c;
+}
+
+.review-subtitle {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--lumo-secondary-text-color);
+}
+
+.game-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.review-description {
+    margin-bottom: 1rem;
+    line-height: 1rem;
+    font-weight:light;
+    color: gray;
+}
+
+.platform-tag {
+    display: inline-block;
+    align-items: center;
+    color: #FFCC00;
+    border-radius: 4px;
+    background-color: rgb(26, 31, 43);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    background-color: white;
+    padding: 1rem;
+    overflow-y: hidden;
+}
+
+[theme~="dark"] .sidebar {
+    background-color: #121212;
+}
+
+.item-game-name {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #1e3f6c;
+}
+
+[theme~="dark"] .item-game-name {
+    color: white;
+}
+
+
+
+[theme~="dark"] .section-title {
+    color: #1e3f6c;
+}
+
+/* Sidebar scroll wrapper */
+.latest-reviews {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+}
+
+/* Título fixo */
+.latest-reviews .section-title {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 8px;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  color: #1e3f6c;
+}
+
+/* Lista com scroll */
+.latest-reviews-list {
+  overflow-y: auto;
+  flex: 2;
+  padding-right: 4px; /* espaço para scrollbar */
+  max-height: 100%; /* limite do scroll visível */
+}
+
+/* Latest review item */
+.latest-review-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--lumo-contrast-10pct);
+}
+
+.latest-review-item:last-child {
+    border-bottom: none;
+}
+
+.item-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: gry;
+}
+
+[theme~="dark"] .item-title {
+    color: #1e3f6c;
+}
+
+.item-platform {
+    display: block;
+    font-size: 0.875rem;
+    color: #FFCC00;
+    border-radius: 4px;
+    background-color: rgb(26, 31, 43);
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.item-user {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--lumo-secondary-text-color);
+}
+
+.item-date {
+    font-size: 11px;
+    color: var(--lumo-secondary-text-color);
+}
+
+/* Responsive styles */
+@media (max-width: 1000px) {
+    .content-layout {
+        flex-direction: column;
+    }
+
+    .featured-reviews, .sidebar {
+        flex-grow: 2;
+        width: 100%;
+    }
+
+    .sidebar {
+        border-left: none;
+        border-top: 1px solid var(--lumo-contrast-10pct);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .title-container {
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .category-filter {
+        width: 100%;
+    }
+
+    .theme-toggle {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+
+    .platform-chip {
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+         .sidebar {
+             flex-grow:3 ;
+             width: 100%;
+         }
+ }
+
+
+/* Theme-specific overrides */
+:host([theme~="dark"]) .review-card {
+    background-color: var(--lumo-shade-5pct);
+}
+
+:host([theme~="light"]) .review-card {
+    background-color: var(--lumo-base-color);
+}
